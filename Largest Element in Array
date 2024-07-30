@@ -1,0 +1,85 @@
+Given an array arr, the task is to find the largest element in it.
+Examples:
+
+Input: arr= [1, 8, 7, 56, 90]
+Output: 90
+Explanation: The largest element of given array is 90.
+Input: arr = [5, 5, 5, 5]
+Output: 5
+Explanation: The largest element of given array is 5.
+Input: arr = [10]
+Output: 10
+Explanation: There is only one element which is the largest
+Expected Time Complexity: O(n)
+Expected Auxiliary Space: O(1)
+
+Constraints:
+1 <= arr.size()<= 105
+0 <= arri <= 105
+arr may contain duplicate elements.
+------------------------------------------------------------------------------------------------------------------------
+//{ Driver Code Starts
+import java.io.*;
+import java.util.*;
+
+class IntArray {
+    public static int[] input(BufferedReader br, int n) throws IOException {
+        String[] s = br.readLine().trim().split(" ");
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) a[i] = Integer.parseInt(s[i]);
+
+        return a;
+    }
+
+    public static void print(int[] a) {
+        for (int e : a) System.out.print(e + " ");
+        System.out.println();
+    }
+
+    public static void print(ArrayList<Integer> a) {
+        for (int e : a) System.out.print(e + " ");
+        System.out.println();
+    }
+}
+
+class GFG {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int t;
+        t = Integer.parseInt(br.readLine());
+        while (t-- > 0) {
+
+            int n;
+            n = Integer.parseInt(br.readLine());
+
+            int[] arr = IntArray.input(br, n);
+
+            Solution obj = new Solution();
+            int res = obj.largest(n, arr);
+
+            System.out.println(res);
+        }
+    }
+}
+
+// } Driver Code Ends
+
+
+
+class Solution {
+    public static int largest(int n, int[] arr) {
+        // code here
+        int largest= arr[0];
+        
+        for(int i = 1; i < arr.length ; i++){
+            if (arr[i] > largest){
+                largest = arr[i];
+            }
+        }
+        
+        return (largest);
+    }
+}
+
+
+----------------------------------------------------------------------------------------------------------------
